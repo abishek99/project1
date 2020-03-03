@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 public class ProfileBean implements Serializable{
 	
+	
 	private String userName;
 	
 	private String password;

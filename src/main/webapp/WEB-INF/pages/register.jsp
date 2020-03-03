@@ -8,16 +8,19 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
 <body>
 <form:form action="" method="POST">
 <table>
 
+		<center>
 		<tr>
 			<td>
-			<a href="user">User</a>
-			<a href="Cleaner">Cleaner</a>
+			<a href="/usersignup">User</a></button>
+			<a href="/cleanersignup">Cleaner</a></button>
 			</td>
 		</tr>
+		</center>
 
 </table>
 </form:form>
