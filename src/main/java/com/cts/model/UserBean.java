@@ -3,64 +3,42 @@ package com.cts.model;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-public class UserBean implements Serializable{
+@Entity
+@Table(name = "user_profile")
+public class UserBean implements Serializable {
 
-	
-	@Size(max=20,message="{error.firstName.size}")
-	@NotBlank(message="{error.blank}")
+	@Size(max = 20, message = "{error.firstName.size}")
+	@NotBlank(message = "{error.blank}")
 	private String firstName;
-	
-	@Size(min=1,max=15,message="{error.lastName.size}")
-	@NotBlank(message="{error.blank}")
-	private String lastName;
-	
-	@Past(message="error.dob.invalid")
-	private Date dob;
-	
 
-	@Pattern(regexp="[0-9]{10}",message="{error.contactNumber.invalid}")
-	@NotBlank(message="{error.blank}")
+	@Size(min = 1, max = 15, message = "{error.lastName.size}")
+	@NotBlank(message = "{error.blank}")
+	private String lastName;
+
+	@Past(message = "error.dob.invalid")
+	private Date dob;
+
+	@Pattern(regexp = "[0-9]{10}", message = "{error.contactNumber.invalid}")
+	@NotBlank(message = "{error.blank}")
 	private String contactNumber;
-	
-	
+
 	private String gender;
-	
-	@Size(min=3,message="{error.userId.size}")
+
+	@Size(min = 3, message = "{error.userId.size}")
+	@Id
 	private String userId;
-	
 
 	private String password;
-	
 
-	
-
-	public UserBean(
-			String firstName,
-			String lastName,
-			Date dob,
-			String contactNumber,
-			String gender, String userId, String password) {
-		super();
-		this.firstName = firstName;
-		this.lastName = lastName;
-		this.dob = dob;
-		this.contactNumber = contactNumber;
-		this.gender = gender;
-		this.userId = userId;
-		this.password = password;
-	}
-
-	public UserBean() {
-		super();
-	}
-
-	
-	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -117,8 +95,6 @@ public class UserBean implements Serializable{
 		this.password = password;
 	}
 
+	
 
-	
-	
-	
 }

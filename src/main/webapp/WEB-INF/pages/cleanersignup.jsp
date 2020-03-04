@@ -101,12 +101,7 @@
            <td><form:errors path="aadharCard" id="errors"/></td>
         </tr>
 
-         <tr>
-        	<td>roleStatus</td>
-        	<td><form:input path="roleStatus"/></td>
-        	<td><form:errors path="roleStatus" id="errors"/></td>
-        </tr>
-            
+
         <tr>
         <td>
             <input type="submit" class="btn btn-primary">

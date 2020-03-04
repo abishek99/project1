@@ -1,11 +1,11 @@
-package com.cts.service;
+package com.cts.dao;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.cts.model.UserBean;
+import com.cts.model.CleanerBean;
 
 @Repository
-public interface LoginCredentials extends JpaRepository<UserBean, String>{
+public interface CleanerCredentials extends JpaRepository<CleanerBean,String>{
 
 }

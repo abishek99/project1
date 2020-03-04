@@ -5,6 +5,7 @@ import java.util.Date;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -15,13 +16,23 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cts.model.CleanerBean;
+import com.cts.model.ProfileBean;
 import com.cts.model.UserBean;
+import com.cts.service.CleanerDetails;
+import com.cts.service.UserDetails;
 
 @Controller
 public class MyController {
 	
+	@Autowired
+	private UserDetails userDetails;
+	
+	@Autowired
+	private CleanerDetails cleanerDetails;
+	
+	
 	@RequestMapping(value="/")
-	public String launcherPage()
+	public String launcherPage(@ModelAttribute("login")ProfileBean pro)
 	{
 		return "home";
 	}
@@ -45,7 +56,8 @@ public class MyController {
 		{
 			return "cleanersignup";
 		}
-		return "home";
+		cleanerDetails.registerCleaner(cleaner);
+		return "cleanerdetailsadded";
 	}
 	
 	@RequestMapping(value="/usersignup")
@@ -57,11 +69,16 @@ public class MyController {
 	@PostMapping("/adduser")
 	public String usersuccess(@Valid @ModelAttribute("user") UserBean user,BindingResult br)
 	{
+		
+		
 		if(br.hasErrors())
 		{
 			return "usersignup";
 		}
-	return "home";
+		
+		userDetails.registerUser(user);
+		
+		return "userdetailsadded";
 	}
 	
 	

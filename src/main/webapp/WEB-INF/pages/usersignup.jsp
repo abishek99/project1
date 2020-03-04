@@ -25,7 +25,7 @@
     <center><h1>USER DETAILS</h1></center>
     
     <center>
-    <form:form class="form-group" action="adduser" modelAttribute="user">
+    <form:form class="form-group" action="adduser" modelAttribute="user" method="post">
         
         <table class="usertable" cellspacing="10px" cellpadding="10px">
             
@@ -74,12 +74,7 @@
             <td><form:errors path="password" id="errors"/></td>
         </tr>
         
-        <tr>
-        	<td>roleStatus</td>
-        	<td><form:input path="roleStatus"/></td>
-        	<td><form:errors path="roleStatus" id="errors"/></td>
-        </tr>
-        
+
         <tr>
         <td>
             <input type="submit" class="btn btn-primary">

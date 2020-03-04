@@ -10,16 +10,16 @@
 </head>
 <body>
 <h1 align="center">WELCOME TO ROOM CLEANING</h1>
-<form:form  action="" method="POST">
+<form:form  action="" method="POST" modelAttribute="login">
 <table align="center">
 	<tr>
 	<td>Username</td>
-	<td><input path="userName"/></td>
+	<td><form:input path="userName"/></td>
 	</tr>
 	
 	<tr>
 	<td>Password</td>
-	<td><input path="password"/></td>
+	<td><form:input path="password"/></td>
 	</tr>
 
 	<tr>

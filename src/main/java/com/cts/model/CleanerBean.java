@@ -11,7 +11,8 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-
+@Entity
+@Table(name="cleaner_profile")
 public class CleanerBean implements Serializable {
 
 	@Size(max=20,message="{error.firstName.size}")
@@ -32,6 +33,7 @@ public class CleanerBean implements Serializable {
 	private String gender;
 	
 	@Size(min=3,message="{error.userId.size}")
+	@Id
 	private String cleanerId;
 	
 	private String password;
