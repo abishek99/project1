@@ -1,26 +1,66 @@
 package com.cts.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class UserBean{
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+public class UserBean implements Serializable{
 
 	
-private String firstName;
+	@Size(max=20,message="{error.firstName.size}")
+	@NotBlank(message="{error.blank}")
+	private String firstName;
 	
+	@Size(min=1,max=15,message="{error.lastName.size}")
+	@NotBlank(message="{error.blank}")
 	private String lastName;
 	
+	@Past(message="error.dob.invalid")
 	private Date dob;
 	
-	private Integer contactNumber;
+
+	@Pattern(regexp="[0-9]{10}",message="{error.contactNumber.invalid}")
+	@NotBlank(message="{error.blank}")
+	private String contactNumber;
+	
 	
 	private String gender;
 	
+	@Size(min=3,message="{error.userId.size}")
 	private String userId;
 	
+
 	private String password;
 	
-	private String roleStatus;
 
+	
+
+	public UserBean(
+			String firstName,
+			String lastName,
+			Date dob,
+			String contactNumber,
+			String gender, String userId, String password) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.dob = dob;
+		this.contactNumber = contactNumber;
+		this.gender = gender;
+		this.userId = userId;
+		this.password = password;
+	}
+
+	public UserBean() {
+		super();
+	}
+
+	
+	
 	public String getFirstName() {
 		return firstName;
 	}
@@ -45,11 +85,11 @@ private String firstName;
 		this.dob = dob;
 	}
 
-	public Integer getContactNumber() {
+	public String getContactNumber() {
 		return contactNumber;
 	}
 
-	public void setContactNumber(Integer contactNumber) {
+	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 
@@ -77,13 +117,7 @@ private String firstName;
 		this.password = password;
 	}
 
-	public String getRoleStatus() {
-		return roleStatus;
-	}
 
-	public void setRoleStatus(String roleStatus) {
-		this.roleStatus = roleStatus;
-	}
 	
 	
 	

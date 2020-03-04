@@ -16,6 +16,10 @@
             background-color:#ffe4c4;
         }
         
+        #errors
+        {
+        	color:red;
+        }
     </style>
     
 <header>
@@ -30,23 +34,26 @@
     <center><h1>CLEANER DETAILS</h1></center>
     
     <center>
-    <form:form class="form-group" action="cleanersignup" modelAttribute="cleaner">
+    <form:form class="form-group" action="addcleaner" modelAttribute="cleaner">
         
         <table class="cleanertable" cellspacing="10px" cellpadding="10px">
             
         <tr>
         <td>FirstName</td>
-        <td><form:input path="firstName" /></td>
+        <td><form:input path="firstName" id="errors"/></td>
+        <td><form:errors path="firstName" id="errors"/></td>
         </tr>
             
         <tr>
         <td>LastName</td>
         <td><form:input path="lastName" /></td>
+        <td><form:errors path="lastName" id="errors"/></td>
         </tr>
         
         <tr>
         <td>DOB</td>
-        <td><form:input path="dob" /></td>
+        <td><form:input path="dob"/></td>
+        <td><form:errors path="dob" id="errors"/></td>
         </tr>
             
         <tr> 
@@ -61,16 +68,19 @@
         <tr>
             <td>ContactNumber</td>
             <td><form:input path="contactNumber"/></td>
+           	<td><form:errors path="contactNumber" id="errors"/></td>
         </tr>
         
         <tr>
             <td>CleanerId</td>
             <td><form:input path="cleanerId" /></td>
+            <td><form:errors path="cleanerId" id="errors"/></td>
         </tr>
             
         <tr>
             <td>Password</td>
             <td><form:input path="password" /></td>
+            <td><form:errors path="password" id="errors"/></td>
         </tr>
              
         <tr>
@@ -78,6 +88,7 @@
            <td>
            <form:input path="license"/>
            </td>
+           <td><form:errors path="license" id="errors"/></td>
         </tr>
             
             
@@ -87,11 +98,13 @@
            <td>
            <form:input path="aadharCard"/>
            </td>
+           <td><form:errors path="aadharCard" id="errors"/></td>
         </tr>
 
          <tr>
         	<td>roleStatus</td>
         	<td><form:input path="roleStatus"/></td>
+        	<td><form:errors path="roleStatus" id="errors"/></td>
         </tr>
             
         <tr>

@@ -6,34 +6,45 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 
 public class CleanerBean implements Serializable {
 
-	
+	@Size(max=20,message="{error.firstName.size}")
+	@NotBlank(message="{error.blank}")
 	private String firstName;
 	
+	@Size(min=1,max=15,message="{error.lastName.size}")
+	@NotBlank(message="{error.blank}")
 	private String lastName;
 	
+	@Past(message="error.dob.invalid")
 	private Date dob;
 	
-	private Integer contactNumber;
+	@Pattern(regexp="[0-9]{10}",message="{error.contactNumber.invalid}")
+	@NotBlank(message="{error.blank}")
+	private String contactNumber;
 	
 	private String gender;
 	
-
+	@Size(min=3,message="{error.userId.size}")
 	private String cleanerId;
 	
 	private String password;
 	
+	@NotBlank(message="{error.blank}")
+	@Size(min=10,message="{error.license.size}")
 	private String license;
 	
+	@NotBlank(message="{error.blank}")
+	@Size(min=16,message="{error.aadharcard.size}")
 	private String aadharCard;
 	
-	
-	private String roleStatus;
-	
+
 	
 	
 	
@@ -77,11 +88,11 @@ public class CleanerBean implements Serializable {
 		this.dob = dob;
 	}
 
-	public Integer getContactNumber() {
+	public String getContactNumber() {
 		return contactNumber;
 	}
 
-	public void setContactNumber(Integer contactNumber) {
+	public void setContactNumber(String contactNumber) {
 		this.contactNumber = contactNumber;
 	}
 
@@ -125,7 +136,7 @@ public class CleanerBean implements Serializable {
 		this.aadharCard = aadharCard;
 	}
 
-	public CleanerBean(String firstName, String lastName, Date dob, Integer contactNumber, String gender,
+	public CleanerBean(String firstName, String lastName, Date dob, String contactNumber, String gender,
 			String cleanerId, String password, String license, String aadharCard) {
 		super();
 		this.firstName = firstName;
@@ -139,14 +150,6 @@ public class CleanerBean implements Serializable {
 		this.aadharCard = aadharCard;
 	}
 
-	public String getRoleStatus() {
-		return roleStatus;
-	}
-
-	public void setRoleStatus(String roleStatus) {
-		this.roleStatus = roleStatus;
-	}
-	
 
 
 

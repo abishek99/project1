@@ -13,6 +13,10 @@
         table{
             background-color:#ffe4c4;
         }
+        #errors
+        {
+        	color:red;
+        }
         
     </style>
   
@@ -21,23 +25,26 @@
     <center><h1>USER DETAILS</h1></center>
     
     <center>
-    <form:form class="form-group" action="cleanersignup" modelAttribute="user">
+    <form:form class="form-group" action="adduser" modelAttribute="user">
         
-        <table class="cleanertable" cellspacing="10px" cellpadding="10px">
+        <table class="usertable" cellspacing="10px" cellpadding="10px">
             
         <tr>
         <td>FirstName</td>
         <td><form:input path="firstName" /></td>
+        <td><form:errors path="firstName" id="errors"/></td>
         </tr>
             
         <tr>
         <td>LastName</td>
         <td><form:input path="lastName" /></td>
+        <td><form:errors path="lastName" id="errors"/></td>
         </tr>
         
         <tr>
         <td>DOB</td>
         <td><form:input path="dob" /></td>
+        <td><form:errors path="dob" id="errors"/></td>
         </tr>
             
         <tr> 
@@ -52,21 +59,25 @@
         <tr>
             <td>ContactNumber</td>
             <td><form:input path="contactNumber"/></td>
+            <td><form:errors path="contactNumber" id="errors"/></td>
         </tr>
         
         <tr>
             <td>CleanerId</td>
             <td><form:input path="userId" /></td>
+            <td><form:errors path="userId" id="errors"/></td>
         </tr>
             
         <tr>
             <td>Password</td>
             <td><form:input path="password" /></td>
+            <td><form:errors path="password" id="errors"/></td>
         </tr>
         
         <tr>
         	<td>roleStatus</td>
         	<td><form:input path="roleStatus"/></td>
+        	<td><form:errors path="roleStatus" id="errors"/></td>
         </tr>
         
         <tr>
