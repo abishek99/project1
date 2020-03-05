@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.cts.model.ServiceBooking;
 import com.cts.model.UserBean;
 import com.cts.model.UserPayment;
+import com.cts.service.PaymentService;
 import com.cts.service.UserDetails;
 import com.cts.service.UserService;
 
@@ -32,6 +33,8 @@ public class UserController {
 	@Autowired
 	private UserService userservice;
 	
+	@Autowired
+	private PaymentService paymentService;
 	
 	@RequestMapping(value="/usersignup")
 	public String userSignup(@ModelAttribute("user") UserBean user) 
@@ -94,6 +97,7 @@ public class UserController {
 			return "payment";
 		}
 		
+		paymentService.pay(up);
 		return "serviceaddedsuccessfully";
 	}
 	
@@ -103,7 +107,7 @@ public class UserController {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
 		CustomDateEditor cde = new CustomDateEditor(sdf,true);
 		wdb.registerCustomEditor(Date.class,"date",cde);
-		wdb.registerCustomEditor(Date.class,"dob",cde);
+		//wdb.registerCustomEditor(Date.class,"dob",cde);
 	}
 
 }

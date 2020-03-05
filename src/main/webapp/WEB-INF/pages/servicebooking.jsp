@@ -34,8 +34,8 @@
             
             <tr>
             <td>Roomcount</td>
-            <td><form:input path="RoomCount"/></td>
-            <td><form:errors path="RoomCount" id="errors"/></td>
+            <td><form:input path="roomCount"/></td>
+            <td><form:errors path="roomCount" id="errors"/></td>
             </tr>
             
             
@@ -67,7 +67,9 @@
             <tr>
                <td>date</td>
                <td><form:input path="date"/></td>
-				<td><form:errors path="date" id="errors"/></td>            </tr>
+               
+				<td><form:errors path="date" id="errors"/></td>           
+				 </tr>
             
             <tr>
                <td>Time Slot</td>

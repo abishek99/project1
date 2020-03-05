@@ -24,13 +24,14 @@ public class UserBean implements Serializable {
 	@NotBlank(message = "{error.blank}")
 	private String lastName;
 
-	@Past(message = "error.dob.invalid")
-	private Date dob;
+	@Pattern(regexp="[0-9]{2}-[0-9]{2}-[0-9]{4}",message="{error.dob.invalid}")
+	private String dob;
 
 	@Pattern(regexp = "[0-9]{10}", message = "{error.contactNumber.invalid}")
 	@NotBlank(message = "{error.blank}")
 	private String contactNumber;
-
+	
+	
 	private String gender;
 
 	@Size(min = 3, message = "{error.userId.size}")
@@ -56,11 +57,11 @@ public class UserBean implements Serializable {
 		this.lastName = lastName;
 	}
 
-	public Date getDob() {
+	public String getDob() {
 		return dob;
 	}
 
-	public void setDob(Date dob) {
+	public void setDob(String dob) {
 		this.dob = dob;
 	}
 

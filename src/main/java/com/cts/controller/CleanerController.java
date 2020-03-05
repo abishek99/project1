@@ -24,7 +24,7 @@ import com.cts.service.CleanerDetails;
 public class CleanerController {
 
 	@Autowired
-	private CleanerDetails cleanerDetails;
+	private CleanerDetails cleanerDao;
 	
 	
 	@RequestMapping(value="/cleanersignup")
@@ -40,7 +40,7 @@ public class CleanerController {
 		{
 			return "cleanersignup";
 		}
-		cleanerDetails.registerCleaner(cleaner);
+		cleanerDao.registerCleaner(cleaner);
 		return "cleanerdetailsadded";
 	}
 	
@@ -50,7 +50,7 @@ public class CleanerController {
 	@InitBinder
 	public void datebind(WebDataBinder wdb)
 	{
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-DD");
 		CustomDateEditor cde = new CustomDateEditor(sdf,true);
 		wdb.registerCustomEditor(Date.class,"dob",cde);
 	}

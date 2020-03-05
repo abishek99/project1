@@ -1,5 +1,7 @@
 package com.cts.dao;
 
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -15,5 +17,6 @@ public interface CleanerCredentials extends JpaRepository<CleanerBean,String>{
 	@Query("select c from CleanerBean c where c.cleanerId=:userName AND c.password=:password" )
 	public CleanerBean validateCleaner(String userName,String password);
 
-	
+
+
 }

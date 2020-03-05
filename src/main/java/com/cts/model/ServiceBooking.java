@@ -2,7 +2,6 @@ package com.cts.model;
 
 import java.util.Date;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,8 +9,9 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.PastOrPresent;
 import javax.validation.constraints.Pattern;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 
 @Entity
@@ -24,7 +24,7 @@ public class ServiceBooking {
 	private Integer id;
 	
 	
-	private Integer RoomCount;
+	private Integer roomCount;
 	
 	@NotBlank(message = "{error.blank}")
 	private String street;
@@ -36,8 +36,8 @@ public class ServiceBooking {
 	private String pincode;
 	
 	
-	@PastOrPresent(message="{error.dob.invalid}")
-	private Date date;
+	@Pattern(regexp="[0-9]{2}-[0-9]{2}-[0-9]{4}",message="{error.dob.invalid}")
+	private String date;
 	
 	@NotBlank(message = "{error.blank}")
 	private String timeSlot;
@@ -47,11 +47,11 @@ public class ServiceBooking {
 	private String contactNumber;
 
 	public Integer getRoomCount() {
-		return RoomCount;
+		return roomCount;
 	}
 
 	public void setRoomCount(Integer roomCount) {
-		RoomCount = roomCount;
+		roomCount = roomCount;
 	}
 
 	public String getStreet() {
@@ -94,11 +94,11 @@ public class ServiceBooking {
 		this.contactNumber = contactNumber;
 	}
 
-	public Date getDate() {
+	public String getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(String date) {
 		this.date = date;
 	}
 
