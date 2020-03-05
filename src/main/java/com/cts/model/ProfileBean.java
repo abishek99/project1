@@ -9,6 +9,8 @@ public class ProfileBean implements Serializable{
 	
 	private String password;
 	
+	private String loginAs;
+	
 	public ProfileBean() {
 		super();
 		this.userName = userName;
@@ -29,6 +31,15 @@ public class ProfileBean implements Serializable{
 
 	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	
+	public String getLoginAs() {
+		return loginAs;
+	}
+
+	public void setLoginAs(String loginAs) {
+		this.loginAs = loginAs;
 	}
 
 	public ProfileBean(String userName, String password) {

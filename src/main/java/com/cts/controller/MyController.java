@@ -3,6 +3,7 @@ package com.cts.controller;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,10 @@ import org.springframework.web.bind.annotation.InitBinder;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
+import com.cts.dao.CleanerCredentials;
+import com.cts.dao.UserCredentials;
 import com.cts.model.CleanerBean;
 import com.cts.model.ProfileBean;
 import com.cts.model.UserBean;
@@ -24,13 +28,14 @@ import com.cts.service.UserDetails;
 @Controller
 public class MyController {
 	
-	@Autowired
-	private UserDetails userDetails;
 	
 	@Autowired
-	private CleanerDetails cleanerDetails;
+	private UserCredentials userdata;
 	
+	@Autowired
+	private CleanerCredentials cleanerdata;
 	
+
 	@RequestMapping(value="/")
 	public String launcherPage(@ModelAttribute("login")ProfileBean pro)
 	{
@@ -43,51 +48,62 @@ public class MyController {
 		return "register";
 	}
 	
-	@RequestMapping(value="/cleanersignup")
-	public String cleanersignup(@ModelAttribute("cleaner") CleanerBean cleaner,BindingResult br)
-	{
-		return "cleanersignup";
+
+	@PostMapping("/login")
+	public ModelAndView signIn(@Valid @ModelAttribute("login")ProfileBean profileBean,BindingResult br,HttpSession session) {
+
+	ModelAndView mv=new ModelAndView("home", "flag", 1);
+
+
+
+	if(br.hasErrors()) {
+
+	mv=new ModelAndView("home");
 	}
-	
-	@PostMapping(value="/addcleaner")
-	public String cleanerSignup(@Valid @ModelAttribute("cleaner") CleanerBean cleaner,BindingResult br)
-	{
-		if(br.hasErrors())
-		{
-			return "cleanersignup";
-		}
-		cleanerDetails.registerCleaner(cleaner);
-		return "cleanerdetailsadded";
+
+
+	if(profileBean.getLoginAs().equals("Admin")) {
+
+	if(profileBean.getUserName().equals("Admin")
+	&& profileBean.getPassword().equals("Admin"))
+
+	mv=new ModelAndView("adminpage");
+
 	}
-	
-	@RequestMapping(value="/usersignup")
-	public String userSignup(@ModelAttribute("user") UserBean user) 
+
+
+	if(profileBean.getLoginAs().equals("User")) {
+
+	UserBean user=userdata.validateUser(profileBean.getUserName(), profileBean.getPassword());
+
+	if(user != null)
 	{
-		return "usersignup";
+	mv=new ModelAndView("addservice");
+	session.setAttribute("user", user);
 	}
-	
-	@PostMapping("/adduser")
-	public String usersuccess(@Valid @ModelAttribute("user") UserBean user,BindingResult br)
+
+
+	return mv;
+	}
+
+
+
+	if(profileBean.getLoginAs().equals("Cleaner")) {
+
+	CleanerBean cleaner=cleanerdata.validateCleaner(profileBean.getUserName(),profileBean.getPassword());
+
+	if(cleaner!= null)
 	{
-		
-		
-		if(br.hasErrors())
-		{
-			return "usersignup";
-		}
-		
-		userDetails.registerUser(user);
-		
-		return "userdetailsadded";
+	mv=new ModelAndView("ViewService");
+	session.setAttribute("cleaner",cleaner);
 	}
+	}
+
+	return mv;
+	}
+
+
 	
 	
-	@InitBinder
-	public void datebind(WebDataBinder wdb)
-	{
-		SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-		CustomDateEditor cde = new CustomDateEditor(sdf,true);
-		wdb.registerCustomEditor(Date.class,"dob",cde);
-	}
 
 }
