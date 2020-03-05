@@ -18,7 +18,11 @@
             table{
                 background-color:#FFE4C4;
                 }
-
+				
+		#errors
+        {
+        	color:red;
+        }
         </style>
 
 
@@ -31,6 +35,7 @@
             <tr>
             <td>Roomcount</td>
             <td><form:input path="RoomCount"/></td>
+            <td><form:errors path="RoomCount" id="errors"/></td>
             </tr>
             
             
@@ -41,11 +46,13 @@
             <tr>
                <td>Street</td>
                <td><form:input path="street"/></td>
+               <td><form:errors path="street" id="errors"/></td>
             </tr>
             
             <tr>
             <td>City</td>
                <td><form:input path="city"/></td>
+               <td><form:errors path="city" id="errors"/></td>
             </tr>
             <tr>
   
@@ -53,22 +60,25 @@
             <tr>
                <td>Pincode</td>
                <td><form:input path="pincode"/></td>
+               <td><form:errors path="pincode" id="errors"/></td>
             </tr>
             
 
             <tr>
                <td>date</td>
                <td><form:input path="date"/></td>
-            </tr>
+				<td><form:errors path="date" id="errors"/></td>            </tr>
             
             <tr>
                <td>Time Slot</td>
                <td><form:input path="timeSlot"/></td>
+               <td><form:errors path="timeSlot" id="errors"/></td>
             </tr>
             
             <tr>
                <td>Contact Number</td>
                <td><form:input path="contactNumber"/></td>
+               <td><form:errors path="contactNumber" id="errors"/></td>
             </tr>
             
             

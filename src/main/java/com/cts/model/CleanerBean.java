@@ -47,7 +47,7 @@ public class CleanerBean implements Serializable {
 	private String aadharCard;
 	
 
-	
+	private String status;
 	
 	
 	
@@ -136,6 +136,18 @@ public class CleanerBean implements Serializable {
 
 	public void setAadharCard(String aadharCard) {
 		this.aadharCard = aadharCard;
+	}
+	
+	
+	
+	
+
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
 	}
 
 	public CleanerBean(String firstName, String lastName, Date dob, String contactNumber, String gender,

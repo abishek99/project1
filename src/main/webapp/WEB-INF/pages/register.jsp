@@ -11,16 +11,20 @@
  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
 <body>
 <form:form action="" method="POST">
-<table>
 
-		<center>
+<table cellpadding="10px" cellspacing="10px" align="center">
+
+		
 		<tr>
 			<td>
-			<a href="/usersignup">User</a></button>
-			<a href="/cleanersignup">Cleaner</a></button>
+			<h2><a href="/usersignup">User</a></h2>
+			<td>
+			
+			<td>
+			<h2><a href="/cleanersignup">Cleaner</a></h2>
 			</td>
 		</tr>
-		</center>
+
 
 </table>
 </form:form>

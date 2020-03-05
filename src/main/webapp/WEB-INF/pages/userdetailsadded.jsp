@@ -7,7 +7,22 @@
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
+<style>
+{
+color:green
+}
+
+</style>
+
+
 <body>
-<h2>User details added successfully</h2>
+<center>
+		<h2 id="font">User details added successfully</h2>
+		
+		
+		<h2><a href="/">HomePage</a></h2>
+
+</center>
+
 </body>
 </html>

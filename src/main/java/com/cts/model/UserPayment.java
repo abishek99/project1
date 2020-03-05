@@ -1,18 +1,39 @@
 package com.cts.model;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+
+@Entity
+@Table(name="user_payment")
 public class UserPayment {
 
+	@NotBlank(message = "{error.blank}")
 	private String cardType;
 	
+	@NotBlank(message = "{error.blank}")
 	private String type;
 	
+	@Id
+	@Size(min=15,message="{error.cardnumber.size}")
+	@NotBlank(message ="{error.blank}")
 	private String cardNumber;
 	
+	@Size(message="{error.firstName.size}")
+	@NotBlank(message ="{error.blank}")
 	private String name;
 	
+	@NotNull(message = "Enter the value")
 	private Integer valid;
 	
+	@NotNull(message = "Enter the value")
 	private Integer until;
+	
 	
 	private Integer cvv;
 

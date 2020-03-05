@@ -64,7 +64,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/serviceadded")
-	public String service(@ModelAttribute("service")ServiceBooking sb,BindingResult br,Model m)
+	public String service(@Valid @ModelAttribute("service")ServiceBooking sb,BindingResult br,Model m)
 	{
 		if(br.hasErrors())
 		{
@@ -87,7 +87,7 @@ public class UserController {
 	}
 	
 	@PostMapping("/usersuccess")
-	public String usersuccess(@ModelAttribute("payment")UserPayment up,BindingResult br)
+	public String usersuccess(@Valid  @ModelAttribute("payment")UserPayment up,BindingResult br)
 	{
 		if(br.hasErrors())
 		{

@@ -37,6 +37,7 @@ public class UserBean implements Serializable {
 	@Id
 	private String userId;
 
+	@NotBlank(message = "{error.blank}")
 	private String password;
 
 	public String getFirstName() {

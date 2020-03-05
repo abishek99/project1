@@ -12,11 +12,15 @@ pageEncoding="ISO-8859-1"%>
 <h1 align="center">WELCOME TO ROOM CLEANING</h1>
 
 
+
+
+
+
 <form:form action="login" method="POST" modelAttribute="login">
 <table align="center">
 <tr>
 <td>Username</td>
-<td><form:input path="userName" /></td>
+<td><form:input path="userName" /> <form:errors path="userName"/></td>
 </tr>
 
 <tr>

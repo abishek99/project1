@@ -8,6 +8,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Future;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.PastOrPresent;
+import javax.validation.constraints.Pattern;
 
 
 @Entity
@@ -22,16 +26,24 @@ public class ServiceBooking {
 	
 	private Integer RoomCount;
 	
+	@NotBlank(message = "{error.blank}")
 	private String street;
 	
+	@NotBlank(message = "{error.blank}")
 	private String city;
 	
+	@NotBlank(message = "{error.blank}")
 	private String pincode;
 	
+	
+	@PastOrPresent(message="{error.dob.invalid}")
 	private Date date;
 	
+	@NotBlank(message = "{error.blank}")
 	private String timeSlot;
 	
+	@Pattern(regexp = "[0-9]{10}", message = "{error.contactNumber.invalid}")
+	@NotBlank(message = "{error.blank}")
 	private String contactNumber;
 
 	public Integer getRoomCount() {

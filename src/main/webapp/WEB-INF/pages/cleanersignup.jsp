@@ -102,6 +102,11 @@
         </tr>
 
 
+	    <tr>
+        <td><form:input path="status" type="hidden"  value="Available"/></td>
+        
+        </tr>
+
         <tr>
         <td>
             <input type="submit" class="btn btn-primary">
