@@ -8,6 +8,9 @@ pageEncoding="ISO-8859-1"%>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"/>
+
 <body>
 <h1 align="center">WELCOME TO ROOM CLEANING</h1>
 
@@ -25,7 +28,7 @@ pageEncoding="ISO-8859-1"%>
 
 <tr>
 <td>Password</td>
-<td><form:input path="password" /></td>
+<td><form:input path="password" type="password"/></td>
 </tr>
 <tr>
 <td>Login As :</td>
@@ -39,8 +42,8 @@ pageEncoding="ISO-8859-1"%>
 </tr>
 
 <tr>
-<td><input type="submit" value="Login"></td>
-<td><input type="reset" value="cancel"></td>
+<td><input type="submit" value="Login" class="btn btn-primary"></td>
+<td><input type="reset" value="cancel" class="btn btn-primary"></td>
 </tr>
 
 <tr>

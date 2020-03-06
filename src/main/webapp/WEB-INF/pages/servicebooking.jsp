@@ -83,7 +83,11 @@
                <td><form:errors path="contactNumber" id="errors"/></td>
             </tr>
             
-            
+            <tr>
+            	<td>
+            	<form:input type="hidden" path="serviceStatus" value="pending" />
+            	</td>
+            </tr>
             
             <tr>
                <td><input type="submit" value="submit" class="btn btn-primary"></td>

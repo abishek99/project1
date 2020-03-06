@@ -13,6 +13,6 @@ public interface UserCredentials extends JpaRepository<UserBean,String>{
 	@Query("select u from UserBean u where u.userId=:userName AND u.password=:password")
 	public UserBean validateUser(String userName,String password);
 
-	}
+}
 
 

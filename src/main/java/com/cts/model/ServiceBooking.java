@@ -45,13 +45,16 @@ public class ServiceBooking {
 	@Pattern(regexp = "[0-9]{10}", message = "{error.contactNumber.invalid}")
 	@NotBlank(message = "{error.blank}")
 	private String contactNumber;
+	
+	
+	private String serviceStatus;
 
 	public Integer getRoomCount() {
 		return roomCount;
 	}
 
 	public void setRoomCount(Integer roomCount) {
-		roomCount = roomCount;
+		this.roomCount = roomCount;
 	}
 
 	public String getStreet() {
@@ -108,6 +111,14 @@ public class ServiceBooking {
 
 	public void setId(Integer id) {
 		this.id = id;
+	}
+
+	public String getServiceStatus() {
+		return serviceStatus;
+	}
+
+	public void setServicestatus(String serviceStatus) {
+		this.serviceStatus = serviceStatus;
 	}
 	
 	

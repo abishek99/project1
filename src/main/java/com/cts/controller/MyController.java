@@ -78,7 +78,7 @@ public class MyController {
 
 	if(user != null)
 	{
-	mv=new ModelAndView("addservice");
+	mv=new ModelAndView("userhome");
 	session.setAttribute("user", user);
 	}
 
@@ -94,7 +94,7 @@ public class MyController {
 
 	if(cleaner!= null)
 	{
-	mv=new ModelAndView("ViewService");
+	mv=new ModelAndView("cleanerservice");
 	session.setAttribute("cleaner",cleaner);
 	}
 	}
