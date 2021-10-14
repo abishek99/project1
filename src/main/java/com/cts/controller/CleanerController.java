@@ -30,7 +30,7 @@ public class CleanerController {
 	@RequestMapping(value="/cleanersignup")
 	public String cleanersignup(@ModelAttribute("cleaner") CleanerBean cleaner,BindingResult br)
 	{
-		return "cleanersignup";
+		return "cleanersignup";// return signup page
 	}
 	
 	@PostMapping(value="/addcleaner")
